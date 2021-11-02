@@ -57,5 +57,11 @@ namespace FortuService
             formDeleteUser.LoginUser.Text = UserNameLabel.Text;
             formDeleteUser.Show();
         }
+
+        private void ВыйтиИзАккаунтаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserNameLabel.Text = "Выполнить вход";
+            АдминистрированиеToolStripMenuItem.Visible = false;
+        }
     }
 }

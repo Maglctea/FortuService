@@ -44,6 +44,7 @@ namespace FortuService
             this.Hide();
             MainForm mainForm = (MainForm)this.Owner;
             mainForm.Username = String.Format("Пользователь: ");
+            mainForm.АдминистрированиеToolStripMenuItem.Visible = false;
         }
 
         private void LoginUser_Click(object sender, EventArgs e)

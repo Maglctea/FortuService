@@ -32,6 +32,10 @@ namespace FortuService
 
                 reader.Read();
                 mainForm.Username = String.Format("Пользователь: {0}", reader[1]);
+                if (Convert.ToInt32(reader[3]) == 1)
+                    mainForm.АдминистрированиеToolStripMenuItem.Visible = true;
+                else
+                    mainForm.АдминистрированиеToolStripMenuItem.Visible = false;
                 reader.Close();
             }
 

@@ -33,8 +33,8 @@ namespace FortuService
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.тикетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.отобразитьТикетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.создатьТикетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ОтобразитьТикетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.СоздатьТикетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.аккаунтыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ВойтиВАккаунтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьАккаунтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +42,9 @@ namespace FortuService
             this.изменитьДанныеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьАккаунтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выйтиИзАккаунтаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.АдминистрированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.УправлениеПользователямиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ПрайслистToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UserNameLabel = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1.SuspendLayout();
@@ -51,7 +54,8 @@ namespace FortuService
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.тикетыToolStripMenuItem,
-            this.аккаунтыToolStripMenuItem});
+            this.аккаунтыToolStripMenuItem,
+            this.АдминистрированиеToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -61,23 +65,23 @@ namespace FortuService
             // тикетыToolStripMenuItem
             // 
             this.тикетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.отобразитьТикетыToolStripMenuItem,
-            this.создатьТикетToolStripMenuItem});
+            this.ОтобразитьТикетыToolStripMenuItem,
+            this.СоздатьТикетToolStripMenuItem});
             this.тикетыToolStripMenuItem.Name = "тикетыToolStripMenuItem";
             this.тикетыToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.тикетыToolStripMenuItem.Text = "Тикеты";
             // 
-            // отобразитьТикетыToolStripMenuItem
+            // ОтобразитьТикетыToolStripMenuItem
             // 
-            this.отобразитьТикетыToolStripMenuItem.Name = "отобразитьТикетыToolStripMenuItem";
-            this.отобразитьТикетыToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.отобразитьТикетыToolStripMenuItem.Text = "Отобразить тикеты";
+            this.ОтобразитьТикетыToolStripMenuItem.Name = "ОтобразитьТикетыToolStripMenuItem";
+            this.ОтобразитьТикетыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ОтобразитьТикетыToolStripMenuItem.Text = "Отобразить тикеты";
             // 
-            // создатьТикетToolStripMenuItem
+            // СоздатьТикетToolStripMenuItem
             // 
-            this.создатьТикетToolStripMenuItem.Name = "создатьТикетToolStripMenuItem";
-            this.создатьТикетToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.создатьТикетToolStripMenuItem.Text = "Создать тикет";
+            this.СоздатьТикетToolStripMenuItem.Name = "СоздатьТикетToolStripMenuItem";
+            this.СоздатьТикетToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.СоздатьТикетToolStripMenuItem.Text = "Создать тикет";
             // 
             // аккаунтыToolStripMenuItem
             // 
@@ -116,14 +120,14 @@ namespace FortuService
             // изменитьДанныеToolStripMenuItem
             // 
             this.изменитьДанныеToolStripMenuItem.Name = "изменитьДанныеToolStripMenuItem";
-            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.изменитьДанныеToolStripMenuItem.Text = "Изменить данные";
             this.изменитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.ИзменитьДанныеToolStripMenuItem_Click);
             // 
             // удалитьАккаунтToolStripMenuItem
             // 
             this.удалитьАккаунтToolStripMenuItem.Name = "удалитьАккаунтToolStripMenuItem";
-            this.удалитьАккаунтToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьАккаунтToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.удалитьАккаунтToolStripMenuItem.Text = "Удалить аккаунт";
             this.удалитьАккаунтToolStripMenuItem.Click += new System.EventHandler(this.УдалитьАккаунтToolStripMenuItem_Click);
             // 
@@ -132,6 +136,29 @@ namespace FortuService
             this.выйтиИзАккаунтаToolStripMenuItem.Name = "выйтиИзАккаунтаToolStripMenuItem";
             this.выйтиИзАккаунтаToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.выйтиИзАккаунтаToolStripMenuItem.Text = "Выйти из аккаунта";
+            this.выйтиИзАккаунтаToolStripMenuItem.Click += new System.EventHandler(this.ВыйтиИзАккаунтаToolStripMenuItem_Click);
+            // 
+            // АдминистрированиеToolStripMenuItem
+            // 
+            this.АдминистрированиеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.УправлениеПользователямиToolStripMenuItem,
+            this.ПрайслистToolStripMenuItem});
+            this.АдминистрированиеToolStripMenuItem.Name = "АдминистрированиеToolStripMenuItem";
+            this.АдминистрированиеToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
+            this.АдминистрированиеToolStripMenuItem.Text = "Администрирование";
+            this.АдминистрированиеToolStripMenuItem.Visible = false;
+            // 
+            // УправлениеПользователямиToolStripMenuItem
+            // 
+            this.УправлениеПользователямиToolStripMenuItem.Name = "УправлениеПользователямиToolStripMenuItem";
+            this.УправлениеПользователямиToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.УправлениеПользователямиToolStripMenuItem.Text = "Управление пользователями";
+            // 
+            // ПрайслистToolStripMenuItem
+            // 
+            this.ПрайслистToolStripMenuItem.Name = "ПрайслистToolStripMenuItem";
+            this.ПрайслистToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
+            this.ПрайслистToolStripMenuItem.Text = "Прайслист";
             // 
             // UserNameLabel
             // 
@@ -173,8 +200,8 @@ namespace FortuService
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem тикетыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem отобразитьТикетыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem создатьТикетToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ОтобразитьТикетыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem СоздатьТикетToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem аккаунтыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ВойтиВАккаунтToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem создатьАккаунтToolStripMenuItem;
@@ -184,6 +211,9 @@ namespace FortuService
         private System.Windows.Forms.ToolStripMenuItem выйтиИзАккаунтаToolStripMenuItem;
         private System.Windows.Forms.Label UserNameLabel;
         private System.Windows.Forms.ImageList imageList1;
+        public System.Windows.Forms.ToolStripMenuItem АдминистрированиеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem УправлениеПользователямиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ПрайслистToolStripMenuItem;
     }
 }
 
