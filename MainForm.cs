@@ -50,9 +50,12 @@ namespace FortuService
             formEditUser.Show();
         }
 
-        private void удалитьАккаунтToolStripMenuItem_Click(object sender, EventArgs e)
+        private void УдалитьАккаунтToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormDeleteUser formDeleteUser = new();
+            formDeleteUser.Owner = this;
+            formDeleteUser.LoginUser.Text = UserNameLabel.Text;
+            formDeleteUser.Show();
         }
     }
 }

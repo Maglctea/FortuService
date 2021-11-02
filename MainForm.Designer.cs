@@ -125,7 +125,7 @@ namespace FortuService
             this.удалитьАккаунтToolStripMenuItem.Name = "удалитьАккаунтToolStripMenuItem";
             this.удалитьАккаунтToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.удалитьАккаунтToolStripMenuItem.Text = "Удалить аккаунт";
-            this.удалитьАккаунтToolStripMenuItem.Click += new System.EventHandler(this.удалитьАккаунтToolStripMenuItem_Click);
+            this.удалитьАккаунтToolStripMenuItem.Click += new System.EventHandler(this.УдалитьАккаунтToolStripMenuItem_Click);
             // 
             // выйтиИзАккаунтаToolStripMenuItem
             // 
