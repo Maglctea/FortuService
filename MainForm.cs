@@ -63,5 +63,12 @@ namespace FortuService
             UserNameLabel.Text = "Выполнить вход";
             АдминистрированиеToolStripMenuItem.Visible = false;
         }
+
+        private void УправлениеПользователямиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAdministrationUsers formAdministrationUsers = new();
+            formAdministrationUsers.Owner = this;
+            formAdministrationUsers.Show();
+        }
     }
 }

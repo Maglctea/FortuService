@@ -74,13 +74,13 @@ namespace FortuService
             // ОтобразитьТикетыToolStripMenuItem
             // 
             this.ОтобразитьТикетыToolStripMenuItem.Name = "ОтобразитьТикетыToolStripMenuItem";
-            this.ОтобразитьТикетыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ОтобразитьТикетыToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.ОтобразитьТикетыToolStripMenuItem.Text = "Отобразить тикеты";
             // 
             // СоздатьТикетToolStripMenuItem
             // 
             this.СоздатьТикетToolStripMenuItem.Name = "СоздатьТикетToolStripMenuItem";
-            this.СоздатьТикетToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.СоздатьТикетToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.СоздатьТикетToolStripMenuItem.Text = "Создать тикет";
             // 
             // аккаунтыToolStripMenuItem
@@ -146,13 +146,13 @@ namespace FortuService
             this.АдминистрированиеToolStripMenuItem.Name = "АдминистрированиеToolStripMenuItem";
             this.АдминистрированиеToolStripMenuItem.Size = new System.Drawing.Size(134, 20);
             this.АдминистрированиеToolStripMenuItem.Text = "Администрирование";
-            this.АдминистрированиеToolStripMenuItem.Visible = false;
             // 
             // УправлениеПользователямиToolStripMenuItem
             // 
             this.УправлениеПользователямиToolStripMenuItem.Name = "УправлениеПользователямиToolStripMenuItem";
             this.УправлениеПользователямиToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.УправлениеПользователямиToolStripMenuItem.Text = "Управление пользователями";
+            this.УправлениеПользователямиToolStripMenuItem.Click += new System.EventHandler(this.УправлениеПользователямиToolStripMenuItem_Click);
             // 
             // ПрайслистToolStripMenuItem
             // 
