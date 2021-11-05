@@ -31,6 +31,7 @@ namespace FortuService
         {
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Администраторы", System.Windows.Forms.HorizontalAlignment.Left);
             System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Пользователи", System.Windows.Forms.HorizontalAlignment.Left);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdministrationUsers));
             this.ListView1 = new System.Windows.Forms.ListView();
             this.columnIcon = new System.Windows.Forms.ColumnHeader();
             this.columnLogin = new System.Windows.Forms.ColumnHeader();
@@ -42,7 +43,6 @@ namespace FortuService
             this.ButtonDelete = new System.Windows.Forms.Button();
             this.ButtonEdit = new System.Windows.Forms.Button();
             this.TextPassword = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,11 +99,9 @@ namespace FortuService
             this.TextNewLogin.PlaceholderText = "Логин";
             this.TextNewLogin.Size = new System.Drawing.Size(130, 23);
             this.TextNewLogin.TabIndex = 2;
-            this.TextNewLogin.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.TextLogin);
             this.groupBox1.Controls.Add(this.ListStatus);
             this.groupBox1.Controls.Add(this.ButtonDelete);
@@ -168,15 +166,6 @@ namespace FortuService
             this.TextPassword.Size = new System.Drawing.Size(130, 23);
             this.TextPassword.TabIndex = 3;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(25, 180);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 28);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Обновить";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // FormAdministrationUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -184,8 +173,9 @@ namespace FortuService
             this.ClientSize = new System.Drawing.Size(488, 427);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ListView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAdministrationUsers";
-            this.Text = "FormAdministrationUsers";
+            this.Text = "Управление пользователями";
             this.Load += new System.EventHandler(this.FormAdministrationUsers_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -205,6 +195,5 @@ namespace FortuService
         private System.Windows.Forms.Button ButtonEdit;
         private System.Windows.Forms.TextBox TextPassword;
         private System.Windows.Forms.Label TextLogin;
-        private System.Windows.Forms.Button button1;
     }
 }

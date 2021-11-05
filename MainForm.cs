@@ -73,7 +73,9 @@ namespace FortuService
 
         private void ПрайслистToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormPiceList formPiceList = new();
+            formPiceList.Owner = this;
+            formPiceList.Show();
         }
     }
 }

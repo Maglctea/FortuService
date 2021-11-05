@@ -62,12 +62,6 @@ namespace FortuService
             reader.Close();
         }
 
-        private void ClearForm()
-        {
-            foreach (TextBox tbox in Controls.OfType<TextBox>())
-                tbox.Text = "";
-        }
-
         private void FormAdministrationUsers_Load(object sender, EventArgs e)
         {
             ImageList imageList = new();
@@ -105,23 +99,16 @@ namespace FortuService
                 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ButtonEdit_Click(object sender, EventArgs e)
         {
 
             MySQL mySQL = new();
-            string editText = "";
             
             if (TextNewLogin.Text.Length > 0)
             {
                 MySqlDataReader reader = mySQL.GetReader(String.Format("UPDATE `users` " +
                                                                         "SET Login_User=\"{0}\" " +
                                                                         "WHERE Login_User=\"{1}\" ", TextNewLogin.Text, TextLogin.Text));
-                editText += String.Format("Login_User=\"{0}\"", TextNewLogin.Text);
                 reader.Close();
             }
             if (TextPassword.Text.Length > 0)

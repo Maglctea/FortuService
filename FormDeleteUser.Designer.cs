@@ -29,6 +29,7 @@ namespace FortuService
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDeleteUser));
             this.PasswordUser = new System.Windows.Forms.TextBox();
             this.LoginUser = new System.Windows.Forms.Label();
             this.EditLoginButton = new System.Windows.Forms.Button();
@@ -72,6 +73,7 @@ namespace FortuService
             this.Controls.Add(this.EditLoginButton);
             this.Controls.Add(this.LoginUser);
             this.Controls.Add(this.PasswordUser);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormDeleteUser";
             this.Text = "Удаление пользователя";
             this.ResumeLayout(false);
