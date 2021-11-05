@@ -159,6 +159,7 @@ namespace FortuService
             this.ПрайслистToolStripMenuItem.Name = "ПрайслистToolStripMenuItem";
             this.ПрайслистToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.ПрайслистToolStripMenuItem.Text = "Прайслист";
+            this.ПрайслистToolStripMenuItem.Click += new System.EventHandler(this.ПрайслистToolStripMenuItem_Click);
             // 
             // UserNameLabel
             // 

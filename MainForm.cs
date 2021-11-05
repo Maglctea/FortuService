@@ -70,5 +70,10 @@ namespace FortuService
             formAdministrationUsers.Owner = this;
             formAdministrationUsers.Show();
         }
+
+        private void ПрайслистToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -22,6 +22,11 @@ namespace FortuService
 
         private void UpdateList()
         {
+            TextLogin.Text = "";
+            TextNewLogin.Text = "";
+            TextPassword.Text = "";
+            ListStatus.SelectedIndex = -1;
+
             MySQL mySQL = new();
             MySqlDataReader reader = mySQL.GetReader("SELECT `Status_User`, `Login_User` FROM `users`");
             ListViewGroup groupAdmin = new(Name = "GroupAdmin", Text = "Администраторы");
@@ -57,6 +62,12 @@ namespace FortuService
             reader.Close();
         }
 
+        private void ClearForm()
+        {
+            foreach (TextBox tbox in Controls.OfType<TextBox>())
+                tbox.Text = "";
+        }
+
         private void FormAdministrationUsers_Load(object sender, EventArgs e)
         {
             ImageList imageList = new();
@@ -84,9 +95,63 @@ namespace FortuService
             if (ListView1.SelectedIndices.Count > 0)
             {
                 rows = ListView1.SelectedItems[0];
-                textBox1.Text = Convert.ToString(rows.SubItems[1].Text);
+                TextLogin.Text = Convert.ToString(rows.SubItems[1].Text);
+                if (rows.Group.Name == "GroupAdmin")
+                    ListStatus.SetSelected(0, true);
+                else if (rows.Group.Name == "GroupUser")
+                    ListStatus.SetSelected(1, true);
+
             }
                 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ButtonEdit_Click(object sender, EventArgs e)
+        {
+
+            MySQL mySQL = new();
+            string editText = "";
+            
+            if (TextNewLogin.Text.Length > 0)
+            {
+                MySqlDataReader reader = mySQL.GetReader(String.Format("UPDATE `users` " +
+                                                                        "SET Login_User=\"{0}\" " +
+                                                                        "WHERE Login_User=\"{1}\" ", TextNewLogin.Text, TextLogin.Text));
+                editText += String.Format("Login_User=\"{0}\"", TextNewLogin.Text);
+                reader.Close();
+            }
+            if (TextPassword.Text.Length > 0)
+            {
+                MySqlDataReader reader1 = mySQL.GetReader(String.Format("UPDATE `users` " +
+                                                                        "SET Password_User=\"{0}\" " +
+                                                                        "WHERE Login_User=\"{1}\" ", TextPassword.Text, TextLogin.Text));
+                reader1.Close();
+            }
+            if (ListStatus.SelectedIndex > -1)
+            {
+                MySqlDataReader reader2 = mySQL.GetReader(String.Format("UPDATE `users` " +
+                                                                        "SET Status_User=\"{0}\" " +
+                                                                        "WHERE Login_User=\"{1}\" ", ListStatus.SelectedIndex + 1, TextLogin.Text));
+                reader2.Close();
+            }
+            
+            
+            UpdateList();
+            
+
+        }
+
+        private void ButtonDelete_Click(object sender, EventArgs e)
+        {
+            MySQL mySQL = new();
+            MySqlDataReader reader = mySQL.GetReader(String.Format("DELETE FROM `users` " +
+                                                                   "WHERE Login_User=\"{0}\" ", TextLogin.Text));
+            reader.Close();
+            UpdateList();
         }
     }
 }
