@@ -74,14 +74,15 @@ namespace FortuService
             // ОтобразитьТикетыToolStripMenuItem
             // 
             this.ОтобразитьТикетыToolStripMenuItem.Name = "ОтобразитьТикетыToolStripMenuItem";
-            this.ОтобразитьТикетыToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.ОтобразитьТикетыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ОтобразитьТикетыToolStripMenuItem.Text = "Отобразить тикеты";
             // 
             // СоздатьТикетToolStripMenuItem
             // 
             this.СоздатьТикетToolStripMenuItem.Name = "СоздатьТикетToolStripMenuItem";
-            this.СоздатьТикетToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.СоздатьТикетToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.СоздатьТикетToolStripMenuItem.Text = "Создать тикет";
+            this.СоздатьТикетToolStripMenuItem.Click += new System.EventHandler(this.СоздатьТикетToolStripMenuItem_Click);
             // 
             // аккаунтыToolStripMenuItem
             // 
@@ -120,14 +121,14 @@ namespace FortuService
             // изменитьДанныеToolStripMenuItem
             // 
             this.изменитьДанныеToolStripMenuItem.Name = "изменитьДанныеToolStripMenuItem";
-            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.изменитьДанныеToolStripMenuItem.Text = "Изменить данные";
             this.изменитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.ИзменитьДанныеToolStripMenuItem_Click);
             // 
             // удалитьАккаунтToolStripMenuItem
             // 
             this.удалитьАккаунтToolStripMenuItem.Name = "удалитьАккаунтToolStripMenuItem";
-            this.удалитьАккаунтToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.удалитьАккаунтToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.удалитьАккаунтToolStripMenuItem.Text = "Удалить аккаунт";
             this.удалитьАккаунтToolStripMenuItem.Click += new System.EventHandler(this.УдалитьАккаунтToolStripMenuItem_Click);
             // 

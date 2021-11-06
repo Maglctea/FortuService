@@ -77,5 +77,12 @@ namespace FortuService
             formPiceList.Owner = this;
             formPiceList.Show();
         }
+
+        private void СоздатьТикетToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAddTickets formAddTickets = new();
+            formAddTickets.Owner = this;
+            formAddTickets.Show();
+        }
     }
 }
