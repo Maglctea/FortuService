@@ -20,10 +20,11 @@ namespace FortuService
 
         private void UpdateList()
         {
+            TextIDService.Text = "";
             TextName.Text = "";
             TextPrice.Text = "";
             richTextDescription.Text = "";
-            ListStatus.SelectedIndex = -1;
+            ListStatus.SelectedIndex = 0;
 
             MySQL mySQL = new();
             MySqlDataReader reader = mySQL.GetReader("SELECT `ID_Group_Service`, `ID_Service`, `Name_Service`, `Price_Service`, `Description_Service` FROM `priceList`");
@@ -92,18 +93,81 @@ namespace FortuService
             {
                 rows = ListView1.SelectedItems[0];
                 TextIDService.Text = Convert.ToString(rows.SubItems[0].Text);
+                TextName.Text = Convert.ToString(rows.SubItems[1].Text);
+                TextPrice.Text = Convert.ToString(rows.SubItems[2].Text);
+                richTextDescription.Text = Convert.ToString(rows.SubItems[3].Text);
                 if (rows.Group.Name == "groupGeneral")
-                    ListStatus.SetSelected(0, true);
+                    ListStatus.SelectedIndex = 0;
                 else if (rows.Group.Name == "groupPrinter")
-                    ListStatus.SetSelected(1, true);
+                    ListStatus.SelectedIndex = 1;
                 else if (rows.Group.Name == "groupPC")
-                    ListStatus.SetSelected(2, true);
+                    ListStatus.SelectedIndex = 2;
                 else if (rows.Group.Name == "groupTelephone")
-                    ListStatus.SetSelected(3, true);
+                    ListStatus.SelectedIndex = 3;
                 else 
-                    ListStatus.SetSelected(4, true);
+                    ListStatus.SelectedIndex = 4;
 
             }
+        }
+
+        private void ButtonEdit_Click(object sender, EventArgs e)
+        {
+            MySQL mySQL = new();
+
+            if (TextName.Text.Length > 0)
+            {
+                MySqlDataReader reader = mySQL.GetReader(String.Format("UPDATE `priceList` " +
+                                                                        "SET Name_Service=\"{0}\" " +
+                                                                        "WHERE ID_Service={1} ", TextName.Text, TextIDService.Text));
+                reader.Close();
+            }
+            if (TextPrice.Text.Length > 0)
+            {
+                MySqlDataReader reader1 = mySQL.GetReader(String.Format("UPDATE `priceList` " +
+                                                                        "SET Price_Service={0} " +
+                                                                        "WHERE ID_Service={1} ", TextPrice.Text, TextIDService.Text));
+                reader1.Close();
+            }
+            if (richTextDescription.Text.Length > 0)
+            {
+                MySqlDataReader reader2 = mySQL.GetReader(String.Format("UPDATE `priceList` " +
+                                                                        "SET Description_Service=\"{0}\" " +
+                                                                        "WHERE ID_Service={1} ", richTextDescription.Text, TextIDService.Text));
+                reader2.Close();
+            }
+            if (ListStatus.SelectedIndex > -1)
+            {
+                MySqlDataReader reader3 = mySQL.GetReader(String.Format("UPDATE `priceList` " +
+                                                                        "SET ID_Group_Service={0} " +
+                                                                        "WHERE ID_Service={1} ", ListStatus.SelectedIndex + 1, TextIDService.Text));
+                reader3.Close();
+            }
+
+
+            UpdateList();
+        }
+
+        private void ButtonDelete_Click(object sender, EventArgs e)
+        {
+            MySQL mySQL = new();
+            MySqlDataReader reader = mySQL.GetReader(String.Format("DELETE FROM `priceList` " +
+                                                                   "WHERE ID_Service={0}", TextIDService.Text));
+            reader.Close();
+            UpdateList();
+        }
+
+        private void ButtonAdd_Click(object sender, EventArgs e)
+        {
+            if (TextName.Text.Length < 1 || TextPrice.Text.Length < 1 || ListStatus.SelectedIndex < 0)
+            {
+                MessageBox.Show("Заполните все обязательные поля!", "Ошибка добавления");
+                return;
+            }
+            MySQL mySQL = new();
+            MySqlDataReader reader = mySQL.GetReader(String.Format("INSERT INTO `priceList`(`Name_Service`, `Price_Service`, `Description_Service`, `ID_Group_Service`) " +
+                                                                    "VALUES (\"{0}\",{1},\"{2}\",{3})", TextName.Text, TextPrice.Text, richTextDescription.Text, ListStatus.SelectedIndex+1));
+            reader.Close();
+            UpdateList();
         }
     }
 }
