@@ -40,7 +40,7 @@ namespace FortuService
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Device = new System.Windows.Forms.ComboBox();
             this.richTextDescription = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddTicket = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Service = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
@@ -145,14 +145,15 @@ namespace FortuService
             this.richTextDescription.TabIndex = 9;
             this.richTextDescription.Text = "Описание:";
             // 
-            // button1
+            // AddTicket
             // 
-            this.button1.Location = new System.Drawing.Point(12, 259);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(328, 28);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AddTicket.Location = new System.Drawing.Point(12, 259);
+            this.AddTicket.Name = "AddTicket";
+            this.AddTicket.Size = new System.Drawing.Size(328, 28);
+            this.AddTicket.TabIndex = 12;
+            this.AddTicket.Text = "Добавить";
+            this.AddTicket.UseVisualStyleBackColor = true;
+            this.AddTicket.Click += new System.EventHandler(this.ButtonAddTicket);
             // 
             // groupBox3
             // 
@@ -180,7 +181,7 @@ namespace FortuService
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(353, 314);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddTicket);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -203,7 +204,7 @@ namespace FortuService
         private System.Windows.Forms.TextBox SurnameClient;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RichTextBox richTextDescription;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddTicket;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox Service;
         private System.Windows.Forms.Label label1;

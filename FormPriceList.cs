@@ -69,8 +69,6 @@ namespace FortuService
                 }
 
                 ListView1.Items.Add(item);
-
-
             }
 
             reader.Close();

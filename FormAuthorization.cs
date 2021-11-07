@@ -37,6 +37,7 @@ namespace FortuService
                 else
                     mainForm.АдминистрированиеToolStripMenuItem.Visible = false;
                 reader.Close();
+                mainForm.UpdateTicketList();
             }
 
             else
