@@ -125,6 +125,8 @@ namespace FortuService
             if (ListView.SelectedIndices.Count > 0)
                 foreach (var i in ListView.SelectedIndices)
                     ListView.Items[Convert.ToInt32(i)].Selected = false;
+            else
+                return;
             ShowTicket(Convert.ToInt32(Ticket.Text));
         }
 
@@ -178,12 +180,18 @@ namespace FortuService
 
         private void TicketClose_Click(object sender, EventArgs e)
         {
-            string IDTicket;
+            int IDTicket;
 
             if (ListView.SelectedIndices.Count > 0 && ListView.SelectedIndices[0] > -1)
-                IDTicket = ListView.SelectedItems[0].Text;
+                IDTicket = Convert.ToInt32(ListView.SelectedItems[0].Text);
             else
-                IDTicket = Ticket.Text;
+            {
+                if (Ticket.Text.Length > 0)
+                    IDTicket = Convert.ToInt32(Ticket.Text);
+                else
+                    return;
+
+            }
             MySQL mySQL = new();
             MySqlDataReader reader = mySQL.GetReader(String.Format("UPDATE `tickets` SET `Status_Ticket`= 0 WHERE ID_Tickets={0} ", IDTicket));
             reader.Close();
@@ -193,12 +201,18 @@ namespace FortuService
 
         private void TicketOpen_Click(object sender, EventArgs e)
         {
-            string IDTicket;
+            int IDTicket;
 
             if (ListView.SelectedIndices.Count > 0 && ListView.SelectedIndices[0] > -1)
-                IDTicket = ListView.SelectedItems[0].Text;
+                IDTicket = Convert.ToInt32(ListView.SelectedItems[0].Text);
             else
-                IDTicket = Ticket.Text;
+            {
+                if (Ticket.Text.Length > 0)
+                    IDTicket = Convert.ToInt32(Ticket.Text);
+                else
+                    return;
+
+            }
             MySQL mySQL = new();
             MySqlDataReader reader = mySQL.GetReader(String.Format("UPDATE `tickets` SET `Status_Ticket`= 1 WHERE ID_Tickets={0} ", IDTicket));
             reader.Close();
@@ -207,15 +221,62 @@ namespace FortuService
 
         private void TicketDelete_Click(object sender, EventArgs e)
         {
-            string IDTicket;
+            int IDTicket;
 
             if (ListView.SelectedIndices.Count > 0 && ListView.SelectedIndices[0] > -1)
-                IDTicket = ListView.SelectedItems[0].Text;
+                IDTicket = Convert.ToInt32(ListView.SelectedItems[0].Text);
             else
-                IDTicket = Ticket.Text;
+            {
+                if (Ticket.Text.Length > 0)
+                    IDTicket = Convert.ToInt32(Ticket.Text);
+                else
+                    return;
+
+            }
             MySQL mySQL = new();
             MySqlDataReader reader = mySQL.GetReader(String.Format("DELETE FROM `tickets` WHERE ID_Tickets={0} ", IDTicket));
             reader.Close();
+            UpdateTicketList();
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            int IDTicket;
+            int IDClient;
+
+            if (ListView.SelectedIndices.Count > 0 && ListView.SelectedIndices[0] > -1)
+                IDTicket = Convert.ToInt32(ListView.SelectedItems[0].Text);
+            else
+            {
+                if (Ticket.Text.Length > 0)
+                                IDTicket = Convert.ToInt32(Ticket.Text);
+                else
+                    return;
+
+            }
+                
+            
+            MySQL mySQL = new();
+            MySqlDataReader reader = mySQL.GetReader(String.Format("SELECT `ID_Client` FROM `tickets` WHERE `ID_Tickets`={0}", IDTicket));
+            if (reader.HasRows)
+            {
+                reader.Read();
+                IDClient = Convert.ToInt32(reader[0]);
+                reader.Close();
+            }
+            else
+            {
+                reader.Close();
+                return;
+            }
+                
+            MySqlDataReader reader1 = mySQL.GetReader(String.Format("UPDATE `devices` SET `Name_Device`=\"{0}\",`Problem_Device`=\"{1}\" " +
+                                                                   "WHERE `ID_Device`={2}", NameDevice.Text, richTextDescription.Text, IdDevice.Text));
+            reader1.Close();
+
+            MySqlDataReader reader2 = mySQL.GetReader(String.Format("UPDATE `clients` SET `Telephone_Client`=\"{0}\",`Surname_Client`=\"{1}\",`Name_Client`=\"{2}\",`Patronymic_Client`=\"{3}\" " +
+                                                                    "WHERE `ID_Client`={4}", Telephone.Text, SurnameClient.Text, NameClient.Text, PatronymicClient.Text, IDClient));
+            reader2.Close();
             UpdateTicketList();
         }
     }

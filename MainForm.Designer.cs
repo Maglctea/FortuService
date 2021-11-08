@@ -74,11 +74,14 @@ namespace FortuService
             this.TicketClose = new System.Windows.Forms.Button();
             this.TicketOpen = new System.Windows.Forms.Button();
             this.TicketDelete = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -153,14 +156,14 @@ namespace FortuService
             // изменитьДанныеToolStripMenuItem
             // 
             this.изменитьДанныеToolStripMenuItem.Name = "изменитьДанныеToolStripMenuItem";
-            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.изменитьДанныеToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.изменитьДанныеToolStripMenuItem.Text = "Изменить данные";
             this.изменитьДанныеToolStripMenuItem.Click += new System.EventHandler(this.ИзменитьДанныеToolStripMenuItem_Click);
             // 
             // удалитьАккаунтToolStripMenuItem
             // 
             this.удалитьАккаунтToolStripMenuItem.Name = "удалитьАккаунтToolStripMenuItem";
-            this.удалитьАккаунтToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьАккаунтToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.удалитьАккаунтToolStripMenuItem.Text = "Удалить аккаунт";
             this.удалитьАккаунтToolStripMenuItem.Click += new System.EventHandler(this.УдалитьАккаунтToolStripMenuItem_Click);
             // 
@@ -312,7 +315,6 @@ namespace FortuService
             // 
             // Telephone
             // 
-            this.Telephone.Enabled = false;
             this.Telephone.Location = new System.Drawing.Point(73, 22);
             this.Telephone.Mask = "+9 (999) 000-0000";
             this.Telephone.Name = "Telephone";
@@ -322,7 +324,6 @@ namespace FortuService
             // PatronymicClient
             // 
             this.PatronymicClient.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystem;
-            this.PatronymicClient.Enabled = false;
             this.PatronymicClient.Location = new System.Drawing.Point(6, 109);
             this.PatronymicClient.Name = "PatronymicClient";
             this.PatronymicClient.PlaceholderText = "Отчество";
@@ -332,7 +333,6 @@ namespace FortuService
             // NameClient
             // 
             this.NameClient.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.FileSystem;
-            this.NameClient.Enabled = false;
             this.NameClient.Location = new System.Drawing.Point(6, 80);
             this.NameClient.Name = "NameClient";
             this.NameClient.PlaceholderText = "Имя";
@@ -341,7 +341,6 @@ namespace FortuService
             // 
             // SurnameClient
             // 
-            this.SurnameClient.Enabled = false;
             this.SurnameClient.Location = new System.Drawing.Point(6, 51);
             this.SurnameClient.Name = "SurnameClient";
             this.SurnameClient.PlaceholderText = "Фамилия";
@@ -371,7 +370,6 @@ namespace FortuService
             // 
             // NameDevice
             // 
-            this.NameDevice.Enabled = false;
             this.NameDevice.Location = new System.Drawing.Point(6, 51);
             this.NameDevice.Name = "NameDevice";
             this.NameDevice.PlaceholderText = "Наименование девайса";
@@ -380,7 +378,6 @@ namespace FortuService
             // 
             // richTextDescription
             // 
-            this.richTextDescription.Enabled = false;
             this.richTextDescription.Location = new System.Drawing.Point(6, 80);
             this.richTextDescription.Name = "richTextDescription";
             this.richTextDescription.Size = new System.Drawing.Size(145, 241);
@@ -413,6 +410,7 @@ namespace FortuService
             // 
             // Price
             // 
+            this.Price.Enabled = false;
             this.Price.Location = new System.Drawing.Point(89, 81);
             this.Price.Name = "Price";
             this.Price.Size = new System.Drawing.Size(85, 23);
@@ -438,45 +436,67 @@ namespace FortuService
             // 
             // TicketClose
             // 
-            this.TicketClose.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TicketClose.Location = new System.Drawing.Point(400, 369);
+            this.TicketClose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TicketClose.Location = new System.Drawing.Point(7, 23);
             this.TicketClose.Name = "TicketClose";
-            this.TicketClose.Size = new System.Drawing.Size(112, 32);
+            this.TicketClose.Size = new System.Drawing.Size(64, 31);
             this.TicketClose.TabIndex = 19;
-            this.TicketClose.Text = "Закрыть тикет";
+            this.TicketClose.Text = "Закрыть";
             this.TicketClose.UseVisualStyleBackColor = true;
             this.TicketClose.Click += new System.EventHandler(this.TicketClose_Click);
             // 
             // TicketOpen
             // 
-            this.TicketOpen.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TicketOpen.Location = new System.Drawing.Point(518, 369);
+            this.TicketOpen.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TicketOpen.Location = new System.Drawing.Point(77, 23);
             this.TicketOpen.Name = "TicketOpen";
-            this.TicketOpen.Size = new System.Drawing.Size(112, 32);
+            this.TicketOpen.Size = new System.Drawing.Size(63, 32);
             this.TicketOpen.TabIndex = 20;
-            this.TicketOpen.Text = "Открыть тикет";
+            this.TicketOpen.Text = "Открыть";
             this.TicketOpen.UseVisualStyleBackColor = true;
             this.TicketOpen.Click += new System.EventHandler(this.TicketOpen_Click);
             // 
             // TicketDelete
             // 
-            this.TicketDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TicketDelete.Location = new System.Drawing.Point(636, 369);
+            this.TicketDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.TicketDelete.Location = new System.Drawing.Point(146, 22);
             this.TicketDelete.Name = "TicketDelete";
-            this.TicketDelete.Size = new System.Drawing.Size(112, 32);
+            this.TicketDelete.Size = new System.Drawing.Size(63, 32);
             this.TicketDelete.TabIndex = 21;
-            this.TicketDelete.Text = "Удалить тикет";
+            this.TicketDelete.Text = "Удалить";
             this.TicketDelete.UseVisualStyleBackColor = true;
             this.TicketDelete.Click += new System.EventHandler(this.TicketDelete_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.TicketClose);
+            this.groupBox5.Controls.Add(this.TicketDelete);
+            this.groupBox5.Controls.Add(this.TicketOpen);
+            this.groupBox5.Location = new System.Drawing.Point(400, 369);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(299, 69);
+            this.groupBox5.TabIndex = 22;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Управление тикетами";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(215, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(73, 32);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Изменить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 450);
-            this.Controls.Add(this.TicketDelete);
-            this.Controls.Add(this.TicketOpen);
-            this.Controls.Add(this.TicketClose);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -497,6 +517,7 @@ namespace FortuService
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -544,6 +565,8 @@ namespace FortuService
         private System.Windows.Forms.Button TicketClose;
         private System.Windows.Forms.Button TicketOpen;
         private System.Windows.Forms.Button TicketDelete;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button button1;
     }
 }
 
