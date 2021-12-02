@@ -12,14 +12,14 @@ namespace FortuService
                                                         "User Id=Fortunella;" +
                                                         "Password=Mexanik_X3000;" +
                                                         "Allow User Variables=True;");
-    
+
         private void OpenConnection()
         {
             if (connection.State == ConnectionState.Closed)
                 connection.Open();
         }
 
-        private void CloseConnection()
+        public void CloseConnection()
         {
             if (connection.State == ConnectionState.Open)
                 connection.Close();

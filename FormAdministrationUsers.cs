@@ -66,8 +66,8 @@ namespace FortuService
         {
             ImageList imageList = new();
             imageList.ImageSize = new Size(24, 24);
-            imageList.Images.Add(new Bitmap(@"..\..\..\src\iconAdmin.png"));
-            imageList.Images.Add(new Bitmap(@"..\..\..\src\iconUser.png"));
+            imageList.Images.Add(new Bitmap(@"src\iconAdmin.png"));
+            imageList.Images.Add(new Bitmap(@"src\iconUser.png"));
             Bitmap emptyImage = new(24, 24);
             using (Graphics gr = Graphics.FromImage(emptyImage))
             {

@@ -45,6 +45,7 @@ namespace FortuService
             MainForm mainForm = (MainForm)this.Owner;
             mainForm.Username = String.Format("Пользователь: ");
             mainForm.АдминистрированиеToolStripMenuItem.Visible = false;
+            mainForm.UpdateTicketList();
         }
 
         private void LoginUser_Click(object sender, EventArgs e)

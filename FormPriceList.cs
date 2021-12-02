@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FortuService.Properties;
 using MySql.Data.MySqlClient;
 
 namespace FortuService
@@ -50,22 +51,27 @@ namespace FortuService
                 if (Convert.ToInt32(reader[0]) == 1)
                 {
                     item.Group = groupGeneral;
+                    item.ImageIndex = 0;
                 }
                 else if (Convert.ToInt32(reader[0]) == 2)
                 {
                     item.Group = groupPrinter;
+                    item.ImageIndex = 1;
                 }
                 else if (Convert.ToInt32(reader[0]) == 3)
                 {
                     item.Group = groupPC;
+                    item.ImageIndex = 2;
                 }
                 else if (Convert.ToInt32(reader[0]) == 4)
                 {
                     item.Group = groupTelephone;
+                    item.ImageIndex = 3;
                 }
                 else
                 {
                     item.Group = groupOther;
+                    item.ImageIndex = 4;
                 }
 
                 ListView1.Items.Add(item);
@@ -81,6 +87,23 @@ namespace FortuService
 
         private void FormPiceList_Load(object sender, EventArgs e)
         {
+            ImageList imageList = new();
+            imageList.ImageSize = new Size(24, 24);
+            imageList.Images.Add(Resources.other);
+            imageList.Images.Add(Resources.iconPrinter);
+            imageList.Images.Add(Resources.iconPC);
+            imageList.Images.Add(Resources.iconTelephone);
+            imageList.Images.Add(Resources.other);
+
+
+            Bitmap emptyImage = new(24, 24);
+            using (Graphics gr = Graphics.FromImage(emptyImage))
+            {
+                gr.Clear(Color.White);
+            }
+            imageList.Images.Add(emptyImage);
+            ListView1.SmallImageList = imageList;
+
             UpdateList();
         }
 
@@ -166,6 +189,11 @@ namespace FortuService
                                                                     "VALUES (\"{0}\",{1},\"{2}\",{3})", TextName.Text, TextPrice.Text, richTextDescription.Text, ListStatus.SelectedIndex+1));
             reader.Close();
             UpdateList();
+        }
+
+        private void FormPiceList_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }

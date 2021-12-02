@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FortuService.Properties;
 using MySql.Data.MySqlClient;
 
 namespace FortuService
@@ -125,8 +126,6 @@ namespace FortuService
             if (ListView.SelectedIndices.Count > 0)
                 foreach (var i in ListView.SelectedIndices)
                     ListView.Items[Convert.ToInt32(i)].Selected = false;
-            else
-                return;
             ShowTicket(Convert.ToInt32(Ticket.Text));
         }
 
@@ -138,10 +137,12 @@ namespace FortuService
         public void UpdateTicketList()
         {
             MySQL mySQL = new();
-            MySqlDataReader reader = mySQL.GetReader(String.Format("SELECT ID_Tickets, ID_Devices, devices.Name_Device, Status_Ticket " +
-                                                                   "FROM tickets, devices, users " +
-                                                                   "WHERE tickets.ID_Devices=devices.ID_Device " +
-                                                                   "AND tickets.ID_User=users.ID_User AND users.Login_User=\"{0}\"", UserNameLabel.Text.Replace("Пользователь: ", "")));
+
+            MySqlDataReader reader = mySQL.GetReader(String.Format("SELECT ID_Tickets, ID_Devices, devices.Name_Device, Status_Ticket, groupService.ID_Group " +
+                                                                   "FROM tickets, devices, users, groupService, priceList " +
+                                                                   "WHERE tickets.ID_Devices=devices.ID_Device AND tickets.ID_User=users.ID_User AND users.Login_User=\"{0}\" " +
+                                                                   "AND priceList.ID_Group_Service=groupService.ID_Group " +
+                                                                   "AND tickets.ID_Service=priceList.ID_Group_Service", UserNameLabel.Text.Replace("Пользователь: ", "")));
             ListViewGroup GroupActiveTickets = new(Name = "GroupActiveTickets", Text = "Активные объявления");
             ListViewGroup GroupNoActiveTickets = new(Name = "GroupNoActiveTickets", Text = "Неактивные объявления");
             ListView.Items.Clear();
@@ -151,7 +152,19 @@ namespace FortuService
             while (reader.Read())
             {
 
-                ListViewItem item = new(new string[] { Convert.ToString(reader[0]), Convert.ToString(reader[1]), Convert.ToString(reader[2])});
+                ListViewItem item = new(new string[] { " "+Convert.ToString(reader[0]), Convert.ToString(reader[1]), Convert.ToString(reader[2])});
+
+                if (Convert.ToInt32(reader[4]) == 1)
+                    item.ImageIndex = 0;
+                else if (Convert.ToInt32(reader[4]) == 2)
+                    item.ImageIndex = 1;
+                else if (Convert.ToInt32(reader[4]) == 3)
+                    item.ImageIndex = 2;
+                else if (Convert.ToInt32(reader[4]) == 4)
+                    item.ImageIndex = 3;
+                else
+                    item.ImageIndex = 4;
+
                 if (Convert.ToInt32(reader[3]) == 1)
                 {
                     item.Group = GroupActiveTickets;
@@ -278,6 +291,32 @@ namespace FortuService
                                                                     "WHERE `ID_Client`={4}", Telephone.Text, SurnameClient.Text, NameClient.Text, PatronymicClient.Text, IDClient));
             reader2.Close();
             UpdateTicketList();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MySQL mySQL = new();
+            mySQL.CloseConnection();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            ImageList imageList = new();
+            imageList.ImageSize = new Size(24, 24);
+            imageList.Images.Add(Resources.other);
+            imageList.Images.Add(Resources.iconPrinter);
+            imageList.Images.Add(Resources.iconPC);
+            imageList.Images.Add(Resources.iconTelephone);
+            imageList.Images.Add(Resources.other);
+
+
+            Bitmap emptyImage = new(24, 24);
+            using (Graphics gr = Graphics.FromImage(emptyImage))
+            {
+                gr.Clear(Color.White);
+            }
+            imageList.Images.Add(emptyImage);
+            ListView.SmallImageList = imageList;
         }
     }
 }

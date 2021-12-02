@@ -201,10 +201,10 @@ namespace FortuService
             // UserNameLabel
             // 
             this.UserNameLabel.AutoSize = true;
-            this.UserNameLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.UserNameLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.UserNameLabel.Location = new System.Drawing.Point(584, 9);
             this.UserNameLabel.Name = "UserNameLabel";
-            this.UserNameLabel.Size = new System.Drawing.Size(104, 17);
+            this.UserNameLabel.Size = new System.Drawing.Size(99, 15);
             this.UserNameLabel.TabIndex = 6;
             this.UserNameLabel.Text = "Выполнить вход";
             this.UserNameLabel.Click += new System.EventHandler(this.ВойтиВАккаунтToolStripMenuItem_Click);
@@ -281,6 +281,7 @@ namespace FortuService
             // 
             // ButtonShowTicket
             // 
+            this.ButtonShowTicket.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ButtonShowTicket.Location = new System.Drawing.Point(94, 22);
             this.ButtonShowTicket.Name = "ButtonShowTicket";
             this.ButtonShowTicket.Size = new System.Drawing.Size(80, 23);
@@ -436,7 +437,7 @@ namespace FortuService
             // 
             // TicketClose
             // 
-            this.TicketClose.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TicketClose.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.TicketClose.Location = new System.Drawing.Point(7, 23);
             this.TicketClose.Name = "TicketClose";
             this.TicketClose.Size = new System.Drawing.Size(64, 31);
@@ -507,6 +508,8 @@ namespace FortuService
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "FortuService";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
