@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace FortuService
 {
@@ -87,10 +88,38 @@ namespace FortuService
             reader.Close();
         }
 
+        private void ReportCreate() 
+        {
+
+
+            Excel.Application App = new Excel.Application();
+            Excel.Workbook Book = App.Workbooks.Add();
+            Excel.Worksheet List = Book.Sheets[1];
+            List.Columns.ColumnWidth = 25;
+            List.Columns[1].EntireColumn.Font.Bold = true;
+            List.Cells[1, 1] = "Ф.И.О.";
+            List.Cells[1, 2] = String.Format("{0} {1} {2}", SurnameClient.Text, NameClient.Text, PatronymicClient.Text);
+            List.Cells[2, 1] = "Телефон";
+            List.Cells[2, 2] = Telephone.Text;
+            List.Cells[3, 1] = "Номер заказа";
+            MySQL mySQL = new();
+            MySqlDataReader reader = mySQL.GetReader("SELECT max(ID_Tickets) FROM `tickets`");
+            if (reader.HasRows)
+            {
+                reader.Read();
+                List.Cells[3, 2] = reader[0].ToString();
+                reader.Close();
+            }
+
+            App.Visible = true;
+
+        }
+
         private void ButtonAddTicket(object sender, EventArgs e)
         {
             int IdClient;
             int IdDevice;
+
 
             MySQL mySQL = new();
             //КЛИЕНТ
@@ -112,6 +141,8 @@ namespace FortuService
                 reader2.Read();
                  IdClient = Convert.ToInt32(reader2[0]);
                 reader2.Close();
+                
+            
             }
 
             //ДЕВАЙС
@@ -138,8 +169,22 @@ namespace FortuService
             if (reader5.RecordsAffected > 0)
             {
                 MessageBox.Show("Тикет создан", "Успех");
+                reader5.Close();
+                ReportCreate();
+
+                MySqlDataReader reader6 = mySQL.GetReader(String.Format("SELECT `ID_Tickets` FROM `devices`, `clients` " +
+                                                                        "WHERE `Telephone_Client`=\"{0}\" AND `Name_Device`=\"{1}\"", Telephone.Text, Device.Text));
+                reader6.Read();
+                IdDevice = Convert.ToInt32(reader6[0]);
+                reader6.Close();
+                return;
             }
             reader5.Close();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
         }
     }
 }

@@ -318,5 +318,10 @@ namespace FortuService
             imageList.Images.Add(emptyImage);
             ListView.SmallImageList = imageList;
         }
+
+        private void списокТикетовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

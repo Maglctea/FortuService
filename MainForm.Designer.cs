@@ -47,6 +47,7 @@ namespace FortuService
             this.АдминистрированиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.УправлениеПользователямиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ПрайслистToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UserNameLabel = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.ListView = new System.Windows.Forms.ListView();
@@ -75,7 +76,9 @@ namespace FortuService
             this.TicketOpen = new System.Windows.Forms.Button();
             this.TicketDelete = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.списокТикетовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -89,7 +92,8 @@ namespace FortuService
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.тикетыToolStripMenuItem,
             this.аккаунтыToolStripMenuItem,
-            this.АдминистрированиеToolStripMenuItem});
+            this.АдминистрированиеToolStripMenuItem,
+            this.отчетыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(774, 24);
@@ -197,6 +201,14 @@ namespace FortuService
             this.ПрайслистToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.ПрайслистToolStripMenuItem.Text = "Прайслист";
             this.ПрайслистToolStripMenuItem.Click += new System.EventHandler(this.ПрайслистToolStripMenuItem_Click);
+            // 
+            // отчетыToolStripMenuItem
+            // 
+            this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.списокТикетовToolStripMenuItem});
+            this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
+            this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.отчетыToolStripMenuItem.Text = "Отчеты";
             // 
             // UserNameLabel
             // 
@@ -438,9 +450,9 @@ namespace FortuService
             // TicketClose
             // 
             this.TicketClose.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TicketClose.Location = new System.Drawing.Point(7, 23);
+            this.TicketClose.Location = new System.Drawing.Point(6, 23);
             this.TicketClose.Name = "TicketClose";
-            this.TicketClose.Size = new System.Drawing.Size(64, 31);
+            this.TicketClose.Size = new System.Drawing.Size(63, 31);
             this.TicketClose.TabIndex = 19;
             this.TicketClose.Text = "Закрыть";
             this.TicketClose.UseVisualStyleBackColor = true;
@@ -449,9 +461,9 @@ namespace FortuService
             // TicketOpen
             // 
             this.TicketOpen.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TicketOpen.Location = new System.Drawing.Point(77, 23);
+            this.TicketOpen.Location = new System.Drawing.Point(76, 23);
             this.TicketOpen.Name = "TicketOpen";
-            this.TicketOpen.Size = new System.Drawing.Size(63, 32);
+            this.TicketOpen.Size = new System.Drawing.Size(62, 32);
             this.TicketOpen.TabIndex = 20;
             this.TicketOpen.Text = "Открыть";
             this.TicketOpen.UseVisualStyleBackColor = true;
@@ -460,9 +472,9 @@ namespace FortuService
             // TicketDelete
             // 
             this.TicketDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TicketDelete.Location = new System.Drawing.Point(146, 22);
+            this.TicketDelete.Location = new System.Drawing.Point(145, 22);
             this.TicketDelete.Name = "TicketDelete";
-            this.TicketDelete.Size = new System.Drawing.Size(63, 32);
+            this.TicketDelete.Size = new System.Drawing.Size(62, 32);
             this.TicketDelete.TabIndex = 21;
             this.TicketDelete.Text = "Удалить";
             this.TicketDelete.UseVisualStyleBackColor = true;
@@ -470,27 +482,45 @@ namespace FortuService
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.button2);
             this.groupBox5.Controls.Add(this.button1);
             this.groupBox5.Controls.Add(this.TicketClose);
             this.groupBox5.Controls.Add(this.TicketDelete);
             this.groupBox5.Controls.Add(this.TicketOpen);
             this.groupBox5.Location = new System.Drawing.Point(400, 369);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(299, 69);
+            this.groupBox5.Size = new System.Drawing.Size(347, 69);
             this.groupBox5.TabIndex = 22;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Управление тикетами";
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(288, 23);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(72, 32);
+            this.button2.TabIndex = 23;
+            this.button2.Text = "Изменить";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(215, 22);
+            this.button1.Location = new System.Drawing.Point(214, 22);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(73, 32);
+            this.button1.Size = new System.Drawing.Size(72, 32);
             this.button1.TabIndex = 22;
             this.button1.Text = "Изменить";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click_1);
+            // 
+            // списокТикетовToolStripMenuItem
+            // 
+            this.списокТикетовToolStripMenuItem.Name = "списокТикетовToolStripMenuItem";
+            this.списокТикетовToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.списокТикетовToolStripMenuItem.Text = "Список тикетов";
+            this.списокТикетовToolStripMenuItem.Click += new System.EventHandler(this.списокТикетовToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -570,6 +600,9 @@ namespace FortuService
         private System.Windows.Forms.Button TicketDelete;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem списокТикетовToolStripMenuItem;
     }
 }
 
