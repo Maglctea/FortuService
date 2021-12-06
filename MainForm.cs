@@ -328,7 +328,9 @@ namespace FortuService
 
         private void отчетОДоходеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FormReportIncome formReportIncome = new FormReportIncome(); 
+            formReportIncome.Owner = this;
+            formReportIncome.Show();
         }
     }
 }

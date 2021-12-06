@@ -68,12 +68,13 @@ namespace FortuService
             List.Columns[5].ColumnWidth = 12;
             List.Columns[6].ColumnWidth = 27;
 
-            List.Cells[1, 1] = "Мастер";
-            List.Cells[1, 2] = "№ Тикета";
-            List.Cells[1, 3] = "№ Девайса";
-            List.Cells[1, 4] = "Модель";
-            List.Cells[1, 5] = "Статус тикета";
-            List.Cells[1, 6] = "Наименование услуги";
+            List.Cells[1, 1] = String.Format("Отчет о тикетах за период от {0} до {1}", dateTimePicker1.Value.ToString("dd.MM.yyyy"), dateTimePicker2.Value.ToString("dd.MM.yyyy"));
+            List.Cells[2, 1] = "Мастер";
+            List.Cells[2, 2] = "№ Тикета";
+            List.Cells[2, 3] = "№ Девайса";
+            List.Cells[2, 4] = "Модель";
+            List.Cells[2, 5] = "Статус тикета";
+            List.Cells[2, 6] = "Наименование услуги";
 
             string statusTickets = "0, 1";
             if (radioButton4.Checked)
@@ -83,10 +84,13 @@ namespace FortuService
             else if (radioButton5.Checked)
                 statusTickets = "1";
 
+            string date1 = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+            string date2 = dateTimePicker2.Value.AddDays(1).ToString("yyyy-MM-dd");
+
             MySQL mySQL = new();
             List<string> ListUsers = new List<string>();
             
-            int NumberString = 1;
+            int NumberString = 2;
             foreach (string user in CheckedUsersList.CheckedItems)
             {
                 NumberString++;
@@ -107,9 +111,9 @@ namespace FortuService
                                                                             "tickets.ID_Devices = devices.ID_Device AND tickets.ID_User = users.ID_User AND " +
                                                                             "users.Login_User = \"{0}\" AND priceList.ID_Group_Service = groupService.ID_Group AND " +
                                                                             "tickets.ID_Service = priceList.ID_Group_Service AND statusTicket.ID_Status = tickets.Status_Ticket AND " +
-                                                                            "tickets.Status_Ticket IN ({1})" +
+                                                                            "tickets.Status_Ticket IN ({1}) AND tickets.DateCreate BETWEEN '{2}' AND '{3}'" +
                                                                         "ORDER BY "+
-                                                                            "devices.ID_Device", user, statusTickets));
+                                                                            "devices.ID_Device", user, statusTickets, date1, date2));
                 List.Cells[NumberString, 1] = user;
                 while (reader1.Read())
                 {
@@ -124,7 +128,8 @@ namespace FortuService
             }
             List.Columns[1].EntireColumn.Font.Bold = true;
             List.Columns[1].EntireRow.Font.Bold = true;
-            List.Range[String.Format("B2:F{0}", NumberString)].Font.Bold = false;
+            List.Columns[2].EntireRow.Font.Bold = true;
+            List.Range[String.Format("B3:F{0}", NumberString)].Font.Bold = false;
             App.Visible = true;
         }
     }
