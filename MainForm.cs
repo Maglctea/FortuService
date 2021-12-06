@@ -12,7 +12,7 @@ using MySql.Data.MySqlClient;
 
 namespace FortuService
 { 
-    public partial class MainForm : Form
+    public partial class MainForm : System.Windows.Forms.Form
         
     {
         public string Username
@@ -320,6 +320,13 @@ namespace FortuService
         }
 
         private void списокТикетовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormReportTickets formReportTickets = new FormReportTickets();
+            formReportTickets.Owner = this;
+            formReportTickets.Show();
+        }
+
+        private void отчетОДоходеToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

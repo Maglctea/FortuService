@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace FortuService
 {
-    public partial class FormAdministrationUsers : Form
+    public partial class FormAdministrationUsers : System.Windows.Forms.Form
     {
         private ListViewItem rows;
 

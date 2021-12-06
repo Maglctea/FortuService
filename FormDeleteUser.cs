@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace FortuService
 {
-    public partial class FormDeleteUser : Form
+    public partial class FormDeleteUser : System.Windows.Forms.Form
     {
         public FormDeleteUser()
         {

@@ -48,6 +48,7 @@ namespace FortuService
             this.УправлениеПользователямиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ПрайслистToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.списокТикетовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UserNameLabel = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.ListView = new System.Windows.Forms.ListView();
@@ -78,7 +79,7 @@ namespace FortuService
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.списокТикетовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отчетОДоходеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -205,10 +206,18 @@ namespace FortuService
             // отчетыToolStripMenuItem
             // 
             this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.списокТикетовToolStripMenuItem});
+            this.списокТикетовToolStripMenuItem,
+            this.отчетОДоходеToolStripMenuItem});
             this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
             this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.отчетыToolStripMenuItem.Text = "Отчеты";
+            // 
+            // списокТикетовToolStripMenuItem
+            // 
+            this.списокТикетовToolStripMenuItem.Name = "списокТикетовToolStripMenuItem";
+            this.списокТикетовToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.списокТикетовToolStripMenuItem.Text = "Список тикетов";
+            this.списокТикетовToolStripMenuItem.Click += new System.EventHandler(this.списокТикетовToolStripMenuItem_Click);
             // 
             // UserNameLabel
             // 
@@ -489,7 +498,7 @@ namespace FortuService
             this.groupBox5.Controls.Add(this.TicketOpen);
             this.groupBox5.Location = new System.Drawing.Point(400, 369);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(347, 69);
+            this.groupBox5.Size = new System.Drawing.Size(362, 69);
             this.groupBox5.TabIndex = 22;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Управление тикетами";
@@ -497,7 +506,7 @@ namespace FortuService
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(288, 23);
+            this.button2.Location = new System.Drawing.Point(290, 22);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(72, 32);
             this.button2.TabIndex = 23;
@@ -515,12 +524,12 @@ namespace FortuService
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
-            // списокТикетовToolStripMenuItem
+            // отчетОДоходеToolStripMenuItem
             // 
-            this.списокТикетовToolStripMenuItem.Name = "списокТикетовToolStripMenuItem";
-            this.списокТикетовToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.списокТикетовToolStripMenuItem.Text = "Список тикетов";
-            this.списокТикетовToolStripMenuItem.Click += new System.EventHandler(this.списокТикетовToolStripMenuItem_Click);
+            this.отчетОДоходеToolStripMenuItem.Name = "отчетОДоходеToolStripMenuItem";
+            this.отчетОДоходеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.отчетОДоходеToolStripMenuItem.Text = "Отчет о доходе";
+            this.отчетОДоходеToolStripMenuItem.Click += new System.EventHandler(this.отчетОДоходеToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -603,6 +612,7 @@ namespace FortuService
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem списокТикетовToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem отчетОДоходеToolStripMenuItem;
     }
 }
 

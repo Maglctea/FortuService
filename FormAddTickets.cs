@@ -12,7 +12,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace FortuService
 {
-    public partial class FormAddTickets : Form
+    public partial class FormAddTickets : System.Windows.Forms.Form
     {
         public FormAddTickets()
         {

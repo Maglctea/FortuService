@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace FortuService
 {
-    public partial class FormAuthorization : Form
+    public partial class FormAuthorization : System.Windows.Forms.Form
     {
         public FormAuthorization()
         {

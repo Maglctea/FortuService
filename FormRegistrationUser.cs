@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace FortuService
 {
-    public partial class FormRegistrationUser : Form
+    public partial class FormRegistrationUser : System.Windows.Forms.Form
     {
         public FormRegistrationUser()
         {
