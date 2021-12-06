@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReportIncome));
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
@@ -208,8 +209,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormReportIncome";
-            this.Text = "FormReportIncome";
+            this.Text = "Отчет о доходе";
             this.Load += new System.EventHandler(this.FormReportIncome_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

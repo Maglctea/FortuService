@@ -49,6 +49,7 @@ namespace FortuService
             this.ПрайслистToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокТикетовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отчетОДоходеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UserNameLabel = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.ListView = new System.Windows.Forms.ListView();
@@ -79,7 +80,6 @@ namespace FortuService
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.отчетОДоходеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -97,7 +97,7 @@ namespace FortuService
             this.отчетыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(774, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(782, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -215,9 +215,16 @@ namespace FortuService
             // списокТикетовToolStripMenuItem
             // 
             this.списокТикетовToolStripMenuItem.Name = "списокТикетовToolStripMenuItem";
-            this.списокТикетовToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.списокТикетовToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.списокТикетовToolStripMenuItem.Text = "Список тикетов";
             this.списокТикетовToolStripMenuItem.Click += new System.EventHandler(this.списокТикетовToolStripMenuItem_Click);
+            // 
+            // отчетОДоходеToolStripMenuItem
+            // 
+            this.отчетОДоходеToolStripMenuItem.Name = "отчетОДоходеToolStripMenuItem";
+            this.отчетОДоходеToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.отчетОДоходеToolStripMenuItem.Text = "Отчет о доходе";
+            this.отчетОДоходеToolStripMenuItem.Click += new System.EventHandler(this.отчетОДоходеToolStripMenuItem_Click);
             // 
             // UserNameLabel
             // 
@@ -376,7 +383,7 @@ namespace FortuService
             this.groupBox3.Controls.Add(this.richTextDescription);
             this.groupBox3.Location = new System.Drawing.Point(590, 27);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(157, 336);
+            this.groupBox3.Size = new System.Drawing.Size(180, 336);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Устройство";
@@ -387,7 +394,7 @@ namespace FortuService
             this.IdDevice.Location = new System.Drawing.Point(6, 22);
             this.IdDevice.Name = "IdDevice";
             this.IdDevice.PlaceholderText = "ID Устройства";
-            this.IdDevice.Size = new System.Drawing.Size(145, 23);
+            this.IdDevice.Size = new System.Drawing.Size(166, 23);
             this.IdDevice.TabIndex = 11;
             // 
             // NameDevice
@@ -395,14 +402,14 @@ namespace FortuService
             this.NameDevice.Location = new System.Drawing.Point(6, 51);
             this.NameDevice.Name = "NameDevice";
             this.NameDevice.PlaceholderText = "Наименование девайса";
-            this.NameDevice.Size = new System.Drawing.Size(145, 23);
+            this.NameDevice.Size = new System.Drawing.Size(166, 23);
             this.NameDevice.TabIndex = 10;
             // 
             // richTextDescription
             // 
             this.richTextDescription.Location = new System.Drawing.Point(6, 80);
             this.richTextDescription.Name = "richTextDescription";
-            this.richTextDescription.Size = new System.Drawing.Size(145, 241);
+            this.richTextDescription.Size = new System.Drawing.Size(166, 241);
             this.richTextDescription.TabIndex = 9;
             this.richTextDescription.Text = "Описание:";
             // 
@@ -459,7 +466,7 @@ namespace FortuService
             // TicketClose
             // 
             this.TicketClose.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TicketClose.Location = new System.Drawing.Point(6, 23);
+            this.TicketClose.Location = new System.Drawing.Point(8, 24);
             this.TicketClose.Name = "TicketClose";
             this.TicketClose.Size = new System.Drawing.Size(63, 31);
             this.TicketClose.TabIndex = 19;
@@ -481,7 +488,7 @@ namespace FortuService
             // TicketDelete
             // 
             this.TicketDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.TicketDelete.Location = new System.Drawing.Point(145, 22);
+            this.TicketDelete.Location = new System.Drawing.Point(144, 23);
             this.TicketDelete.Name = "TicketDelete";
             this.TicketDelete.Size = new System.Drawing.Size(62, 32);
             this.TicketDelete.TabIndex = 21;
@@ -498,7 +505,7 @@ namespace FortuService
             this.groupBox5.Controls.Add(this.TicketOpen);
             this.groupBox5.Location = new System.Drawing.Point(400, 369);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(362, 69);
+            this.groupBox5.Size = new System.Drawing.Size(370, 69);
             this.groupBox5.TabIndex = 22;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Управление тикетами";
@@ -506,7 +513,7 @@ namespace FortuService
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(290, 22);
+            this.button2.Location = new System.Drawing.Point(289, 22);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(72, 32);
             this.button2.TabIndex = 23;
@@ -516,7 +523,7 @@ namespace FortuService
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(214, 22);
+            this.button1.Location = new System.Drawing.Point(211, 22);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(72, 32);
             this.button1.TabIndex = 22;
@@ -524,18 +531,11 @@ namespace FortuService
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
-            // отчетОДоходеToolStripMenuItem
-            // 
-            this.отчетОДоходеToolStripMenuItem.Name = "отчетОДоходеToolStripMenuItem";
-            this.отчетОДоходеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.отчетОДоходеToolStripMenuItem.Text = "Отчет о доходе";
-            this.отчетОДоходеToolStripMenuItem.Click += new System.EventHandler(this.отчетОДоходеToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 450);
+            this.ClientSize = new System.Drawing.Size(782, 450);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
