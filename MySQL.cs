@@ -9,8 +9,8 @@ namespace FortuService
         public readonly MySqlConnection connection = new("Server=94.103.81.106;" +
                                                         "Port=3307;" +
                                                         "Database=FortuService;" +
-                                                        "User Id=Fortunella;" +
-                                                        "Password=Mexanik_X3000;" +
+                                                        "User Id=root;" +
+                                                        "Password=root;" +
                                                         "Allow User Variables=True;");
 
         private void OpenConnection()
